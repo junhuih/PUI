@@ -1,13 +1,16 @@
+//  Debug purpose, clear al local storage
 //  window.onload = function(){
 //          localStorage.clear();
 // }
 
+// Change the size of the item
 function changeSize(){
     var x = document.getElementById("size").value;
     var image = document.getElementById("large_img");
     image.src = "images/product_" + x + ".jpg"
 }
 
+// Change the color of the item
 function changeColor(color) {
     var image = document.getElementById("large_img");
     var color_text = document.getElementById("color_text");
@@ -31,19 +34,21 @@ function changeColor(color) {
     }
 }
 
+// Display cart (hidden by default)
 function showCart() {
+    // set up shopping cart as display
     var x = document.getElementById("shopping_cart");
     x.style.display = "block";
 
+    // clear all existing data and initialize the cart if necessary
 	document.querySelectorAll('.cart_item').forEach(e => e.remove());
-
     if (localStorage && localStorage.getItem('cart')) {
         var cart = JSON.parse(localStorage.getItem('cart'));
     } else {
     	var cart = {};
     }
 
-    var cart_price_document = document.getElementById("cart_price");
+    // total cart price
     var cart_price = 0;
 
     for (item in cart){
@@ -79,9 +84,10 @@ function showCart() {
                             "<p onclick = deleteItem('" + new_item.id + "') style = 'color:blue; font-size:15px'>Delete</p></div>";
         document.getElementById("shopping_cart").appendChild(new_item);
     }
-    var cart_price_document = document.getElementById("cart_price").innerHTML = "$" + cart_price;
+    document.getElementById("cart_price").innerHTML = "$" + cart_price;
 }
 
+// remove the selected item
 function deleteItem(value) {
     if (localStorage && localStorage.getItem('cart')) {
         var cart = JSON.parse(localStorage.getItem('cart'));
@@ -101,11 +107,13 @@ function deleteItem(value) {
     showCart()
 }
 
+// close the cart
 function closeCart(){
     var x = document.getElementById("shopping_cart");
     x.style.display = "none";
 }
 
+// add the item from the item detail to the cart, and display the cart
 function addToCart() {
     var item_name = document.getElementById("item_name").innerHTML;
     var color_text = document.getElementById("color_text").innerHTML;
