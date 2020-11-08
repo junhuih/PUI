@@ -7,9 +7,16 @@
     <meta name = "keywords" content = "PUI 05430, Muddy Paws, Homework"/>
     <meta charset="UTF-8">
     <link rel = "stylesheet" href = "css/stylesheet.css">
+    <script src="js/scripts.js"></script>
 </head>
 
 <body>
+    <div id = "shopping_cart" style="top:0">
+        <h2 style = "float:left">Shopping Cart</h2>
+        <img style = "float: right; width: 25px; padding-top: 20px; padding-right: 20px;" src = "images/close.svg" onclick="closeCart()" alt = "shopping-cart">
+        <img id = "checkout" src = "images/checkout.svg" alt = "checkout">
+        <div style="float: right;" id = "cart_price_info">Total price:<p id = "cart_price" style = "margin-bottom: 0;">$0</p></div>
+    </div>
     <!-- Nav bar -->
     <div id = "nav">
         <a href = "index.html"><img id = "logo" src = 'images/logo.svg' alt = "logo"></a>
@@ -25,10 +32,10 @@
                 <a href = "order_detail.html" style = "text-decoration: none;color:black;"><p id = "order_and_acc" style = "padding-top: 15px;">Orders & Account</p></a>
             </div>
             <div class = "box C">
-                <img id = "cart_img" src = 'images/cart.svg' alt = "cart">
+                <img id = "cart_img" src = 'images/cart.svg' alt = "cart" onclick="showCart()">
             </div>
         </div>
-    </div> 
+    </div>
 
     <!-- Nav bar categories -->
     <div id = "category">

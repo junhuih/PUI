@@ -1,6 +1,6 @@
-window.onload = function(){
-     sessionStorage.clear();
-}
+//  window.onload = function(){
+//          localStorage.clear();
+// }
 
 function changeSize(){
     var x = document.getElementById("size").value;
@@ -34,6 +34,71 @@ function changeColor(color) {
 function showCart() {
     var x = document.getElementById("shopping_cart");
     x.style.display = "block";
+
+	document.querySelectorAll('.cart_item').forEach(e => e.remove());
+
+    if (localStorage && localStorage.getItem('cart')) {
+        var cart = JSON.parse(localStorage.getItem('cart'));
+    } else {
+    	var cart = {};
+    }
+
+    var cart_price_document = document.getElementById("cart_price");
+    var cart_price = 0;
+
+    for (item in cart){
+    	var item_value = JSON.parse(cart[item])
+    	var item_name = String(item_value['item_name']);
+    	var color_text = item_value['color'];
+    	var item_price = item_value['price'];
+    	var item_size = item_value['size'];
+    	var quantity = item_value['quantity'];
+        var image = String(item_value['image']);
+        if (color_text == "Fire Orange"){
+            color_text = "fireorange"
+        }
+
+	    if (item_size == 1) {
+	        size = "Tiny";
+	    } else if (item_size == 2) {
+	        size = "Small";
+	    } else if (item_size == 3) {
+	        size = "Medium";
+	    } else if (item_size == 4) {
+	        size = "Large";
+	    }
+	    var cur_price = parseInt(item_price) * quantity;
+	    cart_price += cur_price;
+
+    	var new_item = document.createElement("div");
+        new_item.id = color_text+item_price+size;
+        new_item.className = "cart_item";
+        new_item.innerHTML = "<img src = " + image + " alt = 'product_img' style = 'float:left'><div><h4>"
+                            + item_name + " - " + size + " - " + color_text+ "</h4><p style = 'font-size:15px'>Quantity: <span id = '" + color_text+item_price+size + "cart'>" + 
+                            + String(quantity) + "</span> &nbsp;Price: $"+item_price + "<span style = 'font-size:10px'>(x "+quantity+")</span></p>" +
+                            "<p onclick = deleteItem('" + new_item.id + "') style = 'color:blue; font-size:15px'>Delete</p></div>";
+        document.getElementById("shopping_cart").appendChild(new_item);
+    }
+    var cart_price_document = document.getElementById("cart_price").innerHTML = "$" + cart_price;
+}
+
+function deleteItem(value) {
+    if (localStorage && localStorage.getItem('cart')) {
+        var cart = JSON.parse(localStorage.getItem('cart'));
+    } else {
+    	var cart = {};
+    }
+
+    var cart_price_document = document.getElementById("cart_price");
+    var cart_price = 0;
+
+    for (item in cart){
+        if (value == item) {
+            delete(cart[item])
+        }
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));		
+    showCart()
 }
 
 function closeCart(){
@@ -42,13 +107,11 @@ function closeCart(){
 }
 
 function addToCart() {
-    var x = document.getElementById("shopping_cart");
-    x.style.display = "block";
-
     var item_name = document.getElementById("item_name").innerHTML;
     var color_text = document.getElementById("color_text").innerHTML;
-    var item_price = document.getElementById("item_price").innerHTML;
+    var item_price = document.getElementById("item_price").innerHTML.substring(1);
     var item_size = document.getElementById("size").value;
+
 
     if (item_size == 1) {
         size = "Tiny";
@@ -62,25 +125,32 @@ function addToCart() {
 
     var image = document.getElementById("large_img").src;
 
-    existing_item = (sessionStorage.getItem(color_text+item_price+size));
-    if (existing_item !== null){
+    if (localStorage && localStorage.getItem('cart')) {
+        var cart = JSON.parse(localStorage.getItem('cart'));
+        existing_item = cart[color_text+item_price+size];
+    } else {
+    	var cart = {};
+    	existing_item = null;
+    }
+    if (color_text == "Fire Orange") {
+        color_text = "fireorange"
+    }
+
+    if (existing_item){
         /* the item exists already, update the item */
         item_quantity = parseInt(JSON.parse(existing_item)['quantity']);
-        x = document.getElementById(color_text+item_price+size+'cart');
         var new_quantity = item_quantity+1;
-        sessionStorage.setItem(color_text+item_price+size, JSON.stringify({color:color_text, price:item_price, size: item_size, quantity: new_quantity}));
-        x.innerHTML = new_quantity;
+        key = color_text+item_price+size;
+    	value = JSON.stringify({item_name: item_name, color:color_text, price:item_price, size: item_size, quantity: new_quantity, image: image});
+    	cart[key] = value;
     } else {
         /* create new item in the cart */
         item_quantity = 1;
-        sessionStorage.setItem(color_text+item_price+size, JSON.stringify({color:color_text, price:item_price, size: item_size, quantity: item_quantity}));
-        var new_item = document.createElement("div");
-
-        new_item.id = color_text+item_price+size;
-        new_item.className = "cart_item";
-        new_item.innerHTML = "<img src = " + image + " alt = 'product_img'><h4>"
-                            + item_name + " - " + size + " - " + color_text+ "</h4><p>Quantity: <span id = '" + color_text+item_price+size + "cart'>" + 
-                            + String(item_quantity) + "</span></p>";
-        document.getElementById("shopping_cart").appendChild(new_item);
-    }   
+        key = color_text+item_price+size;
+    	value = JSON.stringify({item_name: item_name, color:color_text, price:item_price, size: item_size, quantity: item_quantity, image: image});
+    	cart[key] = value;
+    } 
+    
+    localStorage.setItem('cart', JSON.stringify(cart));		
+    showCart()
 }
