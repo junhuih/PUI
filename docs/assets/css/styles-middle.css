@@ -44,9 +44,14 @@
         z-index:2;
     }
 
+    #frame_3 #frame_3_title h1 {
+        font-size:40px
+    }
+
     #frame_3_normal {
         overflow: auto;
-        height:80vh;
+        height:85vh;
+        padding-top: 20vh;
     }
 
     #frame_4 {
