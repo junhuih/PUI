@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta information -->
+    <title>Muddy Paws - Product Detail</title>
+    <meta name = "author" content = "Junhui He"/>
+    <meta name = "keywords" content = "PUI 05430, Muddy Paws, Homework"/>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "css/stylesheet.css">
+    <script src="js/scripts.js"></script>
+</head>
+
+<body>
+    <div id = "shopping_cart" style="top:0">
+        <h2 style = "float:left">Shopping Cart</h2>
+        <img style = "float: right; width: 25px; padding-top: 20px; padding-right: 20px;" src = "images/close.svg" onclick="closeCart()" alt = "shopping-cart">
+        <img id = "checkout" src = "images/checkout.svg" alt = "checkout">
+        <div style="float: right;" id = "cart_price_info">Total price:<p id = "cart_price" style = "margin-bottom: 0;">$0</p></div>
+    </div>
+    <!-- Nav bar -->
+    <div id = "nav">
+        <a href = "index.html"><img id = "logo" src = 'images/logo.svg' alt = "logo"></a>
+        <div class = "grid">
+            <div class = "box A">
+                <form id = "search">
+                    <input id = "search_bar" type="text" placeholder="Search" name="search">
+                    <button id = "search_button"><img src = 'images/search.svg' alt = "search"></button>
+                </form>
+            </div>
+            <div class = "box B">
+                <p id = "sign_in">Sign in</p>
+                <a href = "order_detail.html" style = "text-decoration: none;color:black;"><p id = "order_and_acc" style = "padding-top: 15px;">Orders & Account</p></a>
+            </div>
+            <div class = "box C">
+                <img id = "cart_img" src = 'images/cart.svg' alt = "cart" onclick="showCart()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Left category bar -->
+    <div id = "category">
+        <div class = "grid">
+            <div class = "box A"><a href="">Brand</a></div>
+            <div class = "box B"><a href="browsing.html">Category</a></div>
+            <div class = "box C"><a href="">Featured</a></div>
+            <div class = "box D"><a href="">About</a></div>
+            <div class = "box E"><a href="">Help</a></div>
+        </div>
+    </div>
+
+
+
+    <!-- Right item detail section -->
+    <div class = "content_wrapper item_detail">
+        <div class = "images">
+            <img id = "large_img" src = "images/product_1.jpg" alt = "product">
+            <img class = "small_img" src = "images/product_6.jpg" alt = "product">
+            <img class = "small_img" src = "images/product_7.jpg" alt = "product">
+            <img class = "small_img" src = "images/product_2.jpg" alt = "product">
+        </div>
+        <!-- Quick descriptions of the product -->
+        <div class = "descriptions">
+            <h1 id = "item_name">Dog Harness Type A</h1>
+            <div id = "review_star">
+                <img src = "images/stars.svg" alt = "stars">
+            </div>
+            <!-- Price range selection -->
+            <h2>Price: <span id = "item_price">$50</span></h2>
+            <form>
+                <label for="size">Select size:</label>
+                <select name="size" id="size" onChange="changeSize(this.value);">
+                  <option value="1">Tiny</option>
+                  <option value="2">Small</option>
+                  <option value="3">Medium</option>
+                  <option value="4">Large</option>
+                </select>
+            </form>
+            <!-- Color selection -->
+            <h3>Color: <span id = "color_text">Strawberry</span></h3>
+            <label class="checkbox">
+                <input type="checkbox" id = "strawberry" onclick="changeColor(this.id)"/>
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id = "blackberry" onclick="changeColor(this.id)"/>
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id = "crazyberry" onclick="changeColor(this.id)"/>
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id = "fire_orange" onclick="changeColor(this.id)"/>
+            </label>
+            <div id = "item_quick_description">
+                <p>Good for your dog<br>
+                Fit all sizes, doesn’t hurt<br>
+                Designed for fast running<br>
+                Premium material</p>
+            </div>
+        </div>
+        <div class = "purchase_item">
+            <p><span style = "color: #35A600">In stock</span><br>Arrives in: 3 - 6 days</p>
+            <img id = "add_button" src = "images/add_button.svg" alt = "add" onclick="addToCart()">
+        </div>
+    </div>
+
+    <!-- Item descriptions & reviews -->
+    <div class = "content_wrapper">
+        <!-- Description & features -->
+        <h3>Description</h3>
+        <p>This product is well made product from XX brand. It is a dog harness that is deisgn to do something. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at lacus non ex tempor imperdiet tincidunt nec elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin dignissim lacus ac est consectetur, sed feugiat tellus ullamcorper. Mauris pellentesque interdum erat at hendrerit. Aliquam laoreet hendrerit iaculis. Mauris ipsum enim, mattis nec nisi vel, rhoncus pretium tortor. Integer convallis nisl eu risus feugiat, et mattis enim faucibus. Curabitur vel dui placerat, rhoncus purus sit amet, ultrices lorem. Sed eu nunc sed velit porttitor maximus. Aenean id viverra arcu, vitae sodales nisi. Maecenas enim ex, egestas nec magna in, vehicula vulputate massa. Suspendisse rutrum at felis ut gravida.</p>
+        <h3>Features</h3>
+        <p>Aliquam laoreet hendrerit iaculis. Mauris ipsum enim, mattis nec nisi vel, rhoncus pretium tortor. Integer convallis nisl eu risus feugiat, et mattis enim faucibus. Curabitur vel dui placerat, rhoncus purus sit amet, ultrices lorem. Sed eu nunc sed velit porttitor maximus. Aenean id viverra arcu, vitae sodales nisi. Maecenas enim ex, egestas nec magna in, vehicula vulputate massa. Suspendisse rutrum at felis ut gravida.</p>
+        <h3>Similar products</h3>
+        <div class = "row_wrapper">
+            <div class = "browsing">
+                <img src = "images/product_1.jpg" alt = "product">
+                <h4>Dog Harness Type A</h4>
+            </div>
+            <div class = "browsing">
+                <img src = "images/product_2.jpg" alt = "product">
+                <h4>Dog Harness Type B</h4>
+            </div>
+            <div class = "browsing">
+                <img src = "images/product_3.jpg" alt = "product">
+                <h4>Harness Attachment A</h4>
+            </div>
+            <div class = "browsing">
+                <img src = "images/product_4.jpg" alt = "product">
+                <h4>Harness Attachment B</h4>
+            </div>
+        </div>
+
+        <!-- Reviews -->
+        <h3>Reviews</h3>
+        <div id = "reviews">
+            <img src = "images/reviews.svg" alt = "reviews">
+            <div id = "review_content">
+                <div class = "review_message">
+                    <h4>Loves it!</h4>
+                    <img src = "images/stars.svg" alt = "stars">
+                    <p style = "color:gray">User A, 5 months ago</p>
+                    <p>My dog loves it! It fits amazingly well with my small dog! And it looks so great. A great deal
+                        for the price, and an excellent product!</p>
+                </div>
+                <div class = "review_message">
+                    <h4>Awesome product!</h4>
+                    <img src = "images/stars.svg" alt = "stars">
+                    <p style = "color:gray">User B, 2 years ago</p>
+                    <p>Excellent product! It fits amazingly well with my small dog! And it looks so great. A great deal
+                        for the price, and an excellent product!</p>
+                </div>
+                <div class = "review_message">
+                    <h4>The best harness I’ve ever used!</h4>
+                    <img src = "images/stars.svg" alt = "stars">
+                    <p style = "color:gray">User C, 2 months ago</p>
+                    <p>My dog loves it! It fits amazingly well with my small dog! And it looks so great. A great deal
+                        for the price, and perfect quality!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
