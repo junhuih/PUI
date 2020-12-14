@@ -1,0 +1,336 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* position of the circle initially*/
+#circle {
+    position: fixed;
+    z-index: -1;
+    width: 5000px;
+    height: 5000px;
+    border-radius: 50%;
+    background-color: #E0E0E0;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    top: 75%;
+    /* minus the 2500px because the radius of circle is 2500px */
+    left: calc(50% - 2500px);
+}
+
+#next_image {
+    width:80px;
+}
+
+#next_button {
+    position: fixed;
+    top:92%;
+    left: calc(50% - 40px);
+    z-index: 10; /* always on top! */
+    cursor: pointer;
+}
+
+/* frame 1 */
+
+#frame_1 {
+    /* min(150px, 8vh) is the magic number such that shorter screen could also see contents */
+    position: absolute;
+    padding-top: calc(min(150px, 8vh));
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 1;
+}
+
+#frame_1 h1 {
+	color: #000000;
+	font-size: 60px;
+	font-weight: 500;
+	text-shadow: 4px 4px #EEEEEE;
+}
+
+#frame_1_description {
+    padding-top: 30px;
+    max-width: 800px;
+    width: 80%;
+    text-align: justify;
+    margin: auto;
+}
+
+#frame_1 p {
+    font-size: 30px;
+}
+
+/* frame 2 */
+#frame_2 {
+    position: absolute;
+    opacity: 0;
+    padding-top: calc(min(150px, 8vh));
+    padding-left: calc(min(300px, 8vw));
+}
+
+#frame_2 h1 {
+	color: #000000;
+	font-size: 60px;
+	font-weight: 500;
+	text-shadow: 4px 4px #EEEEEE;
+}
+
+#frame_2_description {
+    max-width: 1200px;
+    width: 60%;
+    text-align: justify;
+    margin: 0;
+}
+
+#frame_2 p {
+    font-size: 25px;
+}
+
+#frame_2 #self_image img {
+	max-width: 170px;
+	max-height: 170px;
+	margin-right: 20px;
+	float: left;
+	border-radius: 100%;
+    background: #eee no-repeat center;
+    background-size: cover;
+    text-align: center;
+    max-width: 80%;
+    position: absolute;
+    left: calc(80vw);
+    top: calc(min(200px, 15vh));
+}
+
+#frame_2_links {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    width: 20vw;
+    height: auto;
+    position: absolute;
+    left: calc(78vw);
+    top: calc(400px);
+}
+
+#frame_2 .links{
+    text-align: left;
+    display: grid;
+    grid-template-rows: 75% 25%;
+}
+
+#frame_2 .links img {
+	max-width: 170px;
+	max-height: 170px;
+	margin-right: 20px;
+	float: left;
+    text-align: center;
+    max-width: 80%;
+    left: calc(80vw);
+    top: calc(min(200px, 15vh));
+}
+
+#frame_2 .links p{
+    margin: 0;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+/* frame 3 */
+#frame_3 {
+    position: absolute;
+    opacity: 0;
+}
+
+
+.title_wrapper {
+    z-index: 2;
+    position: fixed;
+    text-align: center;
+    width: 100vw;
+}
+
+#frame_3 #frame_3_title h1 {
+	color: #000000;
+	font-size: 60px;
+	font-weight: 500;
+    text-shadow: 4px 4px #EEEEEE;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#frame_3 #frame_3_expand_button {
+	color: #0000FF;
+	font-size: 20px;
+    padding-top: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#frame_3_normal {
+    padding-top: 30vh;
+}
+
+#frame_3 h1 {
+    font-size: 25px;
+}
+
+#frame_3 p{
+    font-size: 15px;
+}
+
+/* will be shown after clicked the expand */
+#frame_3_expanded {
+    /* logic handeled in JS because Bootstrap is not happy with defaultly none element */
+    /* display: none; */
+    opacity: 0;
+}
+
+.custom_project h1 {
+    color:#0000FF;
+    cursor: pointer;
+}
+
+.custom_project h1:hover {
+    text-decoration: underline;
+}
+
+.projectimg {
+	max-width: 100%;
+	max-height: 200px;
+}
+
+/* frame 4 */
+#frame_4 {
+    position: absolute;
+    opacity: 0;
+    padding-top: calc(min(150px, 8vh));
+}
+
+#frame_4_content {
+    text-align: justify;
+    margin: 0;
+    padding-left: calc(35vw);
+}
+
+#frame_4 h1 {
+    padding-top: 30px;
+	color: #000000;
+	font-size: 60px;
+	font-weight: 500;
+    text-shadow: 4px 4px #EEEEEE;
+    float: right;
+}
+
+#frame_4 p {
+    padding-top: 30px;
+    float: right;
+    font-size: 25px;
+    max-width: 1200px;
+    width: 50vw;
+}
+
+#frame_4 #life_image img {
+	max-width: 170px;
+	max-height: 170px;
+	margin-right: 20px;
+	float: left;
+	border-radius: 100%;
+    background: #eee no-repeat center;
+    background-size: cover;
+    text-align: center;
+    max-width: 80%;
+    position: absolute;
+    left: calc(10vw);
+    top: calc(min(200px, 15vh));
+}
+
+/* styles for the project detail pages */
+#project_circle {
+    z-index: 2;
+    width: 5000px;
+    height: 5000px;
+    border-radius: 50%;
+    background-color: gray;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    top: calc(25% - 5000px);
+    left: calc(50% - 2500px);
+    position: fixed;
+}
+
+#title_wrapper {
+    z-index: 2;
+    position: fixed;
+    text-align: center;
+    width: 100vw;
+}
+
+#project_title h1 {
+	color: #000000;
+	font-size: 45px;
+	font-weight: 500;
+    text-shadow: 2px 2px #EEEEEE;
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+#project_title #go_back_button {
+	color: #000000;
+	font-size: 20px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.display_row {
+    padding-top: 30vh;
+    width:80%;
+    margin: auto;
+    z-index: -5; /* on the very bottom */
+}
+
+.display_row p {
+    padding-top: 20px;
+}
+
+.rich_project_display {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.rich_project_display img {
+	max-width: 100%;
+    max-height: 200px;
+}
+
+.rich_project_display {
+    height: auto;
+    min-height:250px;
+}
+
+/* style for the final frame */
+#final_frame {
+    opacity: 0;
+    text-align: center;
+}
+
+#final_frame_title {
+    text-align: center;
+    z-index: 2;
+    padding-top: 35vh;
+}
+
+#final_frame_title h1{
+    font-size: 30px;
+}
+
+#final_frame h2{
+    font-size: 25px;
+    color: #0000FF;
+    cursor: pointer;
+}

@@ -1,0 +1,82 @@
+/* overwriting document when the user is on mobile */
+@media screen and (max-width: 1023px){
+    #circle {
+        z-index:2;
+    }
+
+    #frame_1 p, #frame_2 p, #frame_4 p {
+        font-size: 20px;
+    }
+
+    #frame_2 {
+        position: relative;
+        padding: 0;
+        padding-left: 5%;
+        padding-top: calc(min(150px, 8vh));
+        text-align: center;
+    }
+    
+    #frame_2 #self_image img {
+        position: relative;
+        left:0;
+        top:0;
+    }
+
+    #frame_2_description {
+        max-width: 90%;
+        width: 100%;
+    }
+
+    #frame_2_links {
+        left:0;
+        top:0;
+        width: calc(80vw - 170px);
+        position: relative;
+    }
+
+    #frame_2_links a {
+        font-size: 12px;
+    }
+
+    .title_wrapper {
+        background-color: white;
+        z-index:2;
+    }
+
+    #frame_3_normal {
+        overflow: auto;
+        height:70vh;
+    }
+
+    #frame_4 {
+        position: relative;
+        padding: 0;
+        padding-left: 5%;
+        padding-top: calc(min(150px, 8vh));
+        text-align: center;
+    }
+
+    #frame_4_content {
+        margin: 0;
+        padding: 0;
+    }
+
+    #frame_4 h1 {
+        float: none;
+        text-align: center;
+    }
+    
+    #frame_4 p {
+        float: none;
+        max-width: 90%;
+        width: 100%;
+    }
+    
+    #frame_4 #life_image img {
+        position: relative;
+        top:0;
+        text-align: center;
+        margin: auto;
+        left: calc(50% - 85px);
+    }
+}
