@@ -15,7 +15,7 @@ window.onload = function () {
 }
 
 /* js function for laptop devices */
-if (document.documentElement.clientWidth > 1024) {
+if (document.documentElement.clientWidth >= 1024) {
     /* functions for the circle, depanding on the states */
     /* it will call the helper functions defined */
     function goNext() {
