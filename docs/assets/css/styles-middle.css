@@ -1,5 +1,7 @@
-/* overwriting document when the user is on mobile */
+/* Overwriting document when the user is on mobile */
+/* For screen size smaller than 1024 pixels */
 @media screen and (max-width: 1023px){
+    /* General overwrites */
     #circle {
         z-index:2;
         top: 85%;
@@ -9,6 +11,7 @@
         font-size: 20px;
     }
 
+    /* Overwriting frame 2 */
     #frame_2 {
         position: relative;
         padding: 0;
@@ -39,6 +42,7 @@
         font-size: 12px;
     }
 
+    /* Overwriting frame 3 */
     .title_wrapper {
         background-color: white;
         z-index:2;
@@ -54,6 +58,24 @@
         padding-top: 20vh;
     }
 
+    .frame_3_project {
+        padding-bottom: 15vh;
+    }
+
+    .frame_3_project #title_wrapper {
+        background-color: white;
+    }
+
+    .frame_3_project #title_wrapper #project_title h1 {
+        font-size: 35px;
+    }
+
+    .rich_project_display {
+        display:inline;
+    }
+
+
+    /* Overwriting frame 4 */
     #frame_4 {
         position: relative;
         padding: 0;

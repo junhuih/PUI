@@ -1,3 +1,6 @@
+// Set up initial variables
+// Since bootstrap doesn't work properly if the items are hidden initially, the
+// items are initialized as not hidden and they are hidden immediately the window loads
 window.onload = function () {
     localStorage.clear();
     localStorage.setItem('state', 0);
@@ -13,7 +16,8 @@ window.onload = function () {
 
 /* js function for laptop devices */
 if (document.documentElement.clientWidth > 1024) {
-    /* functions for the circle */
+    /* functions for the circle, depanding on the states */
+    /* it will call the helper functions defined */
     function goNext() {
         var state = parseInt(localStorage.getItem('state'));
         if (state == 0) {
@@ -30,6 +34,7 @@ if (document.documentElement.clientWidth > 1024) {
         localStorage.setItem('state', state);
     }
 
+    // helper function for goNext(), linked with frame 1
     function goNextOne() {
         $('#frame_1').delay(100).animate({ 'opacity': '0' }, 500);
         $('#frame_2').delay(200).animate({ 'opacity': '1' }, 500);
@@ -75,6 +80,7 @@ if (document.documentElement.clientWidth > 1024) {
         }
     }
 
+    // helper function for goNext(), linked with frame 2
     function goNextTwo() {
         $('#frame_2').delay(100).animate({ 'opacity': '0' }, 500);
         $('#frame_3').delay(200).animate({ 'opacity': '1' }, 500);
@@ -120,6 +126,7 @@ if (document.documentElement.clientWidth > 1024) {
         }
     }
 
+    // helper function for goNext(), linked with frame 3
     function goNextThree() {
         $('#frame_3').delay(100).animate({ 'opacity': '0' }, 500);
         $('#frame_4').delay(200).animate({ 'opacity': '1' }, 500);
@@ -165,6 +172,7 @@ if (document.documentElement.clientWidth > 1024) {
         }
     }
 
+    // helper function for goNext(), linked with frame 4
     function goNextFour() {
         $('#next_button').hide();
         $('#frame_4').delay(100).animate({ 'opacity': '0' }, 500);
@@ -197,7 +205,7 @@ if (document.documentElement.clientWidth > 1024) {
         }
     }
 
-    /* frame 3 function */
+    // Frame 3 function to expand the past projects 
     function expandFrameThree() {
         var frame_3_expanded = parseInt(localStorage.getItem('frame_3_expanded'))
         if (frame_3_expanded == 0) {
@@ -219,6 +227,8 @@ if (document.documentElement.clientWidth > 1024) {
         localStorage.setItem('frame_3_expanded', frame_3_expanded);
     }
 
+
+    // Frame 3 function to show a project detail
     function KSTProject() {
         $('.frame_3_project').show();
         $('#frame_3_normal').hide();
@@ -227,6 +237,7 @@ if (document.documentElement.clientWidth > 1024) {
         $('#circle').css('z-index', '2');
     }
 
+    // Frame 3 function to go back from a project detail
     function goBack() {
         $('.frame_3_project').hide();
         $('#frame_3_normal').show();
@@ -235,6 +246,7 @@ if (document.documentElement.clientWidth > 1024) {
         $('#circle').css('z-index', '-1');
     }
 
+    // Frame 4 function to start the animation all over again
     function startOver() {
         $('#next_button').show();
         $('#final_frame').delay(100).animate({ 'opacity': '0' }, 500);
@@ -267,11 +279,12 @@ if (document.documentElement.clientWidth > 1024) {
         }
     }
 } else {
-/* disable the circle moving in mobile devices */
+    /* disable the circle moving in mobile devices */
+    /* Concept is similar to that of the desktop's */
     function goNext() {
         var state = parseInt(localStorage.getItem('state'));
 
-        if (state <= 2){
+        if (state <= 2) {
             var hideFrame = "#frame_" + (state + 1);
             var showFrame = "#frame_" + (state + 2);
 
@@ -294,7 +307,7 @@ if (document.documentElement.clientWidth > 1024) {
         localStorage.setItem('state', state);
     }
 
-    /* frame 3 function */
+    /* Frame 3 function to expand the past projects */
     function expandFrameThree() {
         var frame_3_expanded = parseInt(localStorage.getItem('frame_3_expanded'))
         if (frame_3_expanded == 0) {
@@ -312,6 +325,25 @@ if (document.documentElement.clientWidth > 1024) {
         localStorage.setItem('frame_3_expanded', frame_3_expanded);
     }
 
+    /* Frame 3 function to show project detail */
+    function KSTProject() {
+        $('.frame_3_project').show();
+        $('#frame_3_normal').hide();
+        $('#frame_3_title').hide();
+        $('#next_button').hide();
+        $('#circle').css('z-index', '2');
+    }
+
+    /* Frame 3 function to hide project detail */
+    function goBack() {
+        $('.frame_3_project').hide();
+        $('#frame_3_normal').show();
+        $('#frame_3_title').show();
+        $('#next_button').show();
+        $('#circle').css('z-index', '-1');
+    }
+
+    /* Frame 4 function to start all animation over again */
     function startOver() {
         $('#next_button').show();
         $('#final_frame').delay(100).animate({ 'opacity': '0' }, 500);

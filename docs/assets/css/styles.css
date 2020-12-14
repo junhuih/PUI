@@ -1,3 +1,8 @@
+/* Default css file for desktop */
+/* For screen size larger than or equal to 1024 pixels */
+
+/* ================================================ */
+/* General Items */
 body {
     margin: 0;
     overflow-x: hidden;
@@ -20,6 +25,7 @@ body {
     left: calc(50% - 2500px);
 }
 
+/* position and detail of the next button */
 #next_image {
     width:80px;
 }
@@ -32,8 +38,8 @@ body {
     cursor: pointer;
 }
 
-/* frame 1 */
-
+/* ================================================ */
+/* Contents in frame 1 */
 #frame_1 {
     /* min(150px, 8vh) is the magic number such that shorter screen could also see contents */
     position: absolute;
@@ -65,7 +71,8 @@ body {
     font-size: 30px;
 }
 
-/* frame 2 */
+/* ================================================ */
+/* Contents in frame 2 */
 #frame_2 {
     position: absolute;
     opacity: 0;
@@ -139,12 +146,12 @@ body {
     padding-top: 10px;
 }
 
-/* frame 3 */
+/* ================================================ */
+/* Contents in frame 3 */
 #frame_3 {
     position: absolute;
     opacity: 0;
 }
-
 
 .title_wrapper {
     z-index: 2;
@@ -189,6 +196,7 @@ body {
     opacity: 0;
 }
 
+/* The detailed project view, only UCRE project is implemented currently */
 .custom_project h1 {
     color:#0000FF;
     cursor: pointer;
@@ -203,52 +211,9 @@ body {
 	max-height: 200px;
 }
 
-/* frame 4 */
-#frame_4 {
-    position: absolute;
-    opacity: 0;
-    padding-top: calc(min(150px, 8vh));
-}
 
-#frame_4_content {
-    text-align: justify;
-    margin: 0;
-    padding-left: calc(35vw);
-}
-
-#frame_4 h1 {
-    padding-top: 30px;
-	color: #000000;
-	font-size: 60px;
-	font-weight: 500;
-    text-shadow: 4px 4px #EEEEEE;
-    float: right;
-}
-
-#frame_4 p {
-    padding-top: 30px;
-    float: right;
-    font-size: 25px;
-    max-width: 1200px;
-    width: 50vw;
-}
-
-#frame_4 #life_image img {
-	max-width: 170px;
-	max-height: 170px;
-	margin-right: 20px;
-	float: left;
-	border-radius: 100%;
-    background: #eee no-repeat center;
-    background-size: cover;
-    text-align: center;
-    max-width: 80%;
-    position: absolute;
-    left: calc(10vw);
-    top: calc(min(200px, 15vh));
-}
-
-/* styles for the project detail pages */
+/* ================================================ */
+/* Contents in the project detail pages inside frame 3 */
 #project_circle {
     z-index: 2;
     width: 5000px;
@@ -313,7 +278,55 @@ body {
     min-height:250px;
 }
 
-/* style for the final frame */
+
+/* ================================================ */
+/* Contents in frame 4 */
+#frame_4 {
+    position: absolute;
+    opacity: 0;
+    padding-top: calc(min(150px, 8vh));
+}
+
+#frame_4_content {
+    text-align: justify;
+    margin: 0;
+    padding-left: calc(35vw);
+}
+
+#frame_4 h1 {
+    padding-top: 30px;
+	color: #000000;
+	font-size: 60px;
+	font-weight: 500;
+    text-shadow: 4px 4px #EEEEEE;
+    float: right;
+}
+
+#frame_4 p {
+    padding-top: 30px;
+    float: right;
+    font-size: 25px;
+    max-width: 1200px;
+    width: 50vw;
+}
+
+#frame_4 #life_image img {
+	max-width: 170px;
+	max-height: 170px;
+	margin-right: 20px;
+	float: left;
+	border-radius: 100%;
+    background: #eee no-repeat center;
+    background-size: cover;
+    text-align: center;
+    max-width: 80%;
+    position: absolute;
+    left: calc(10vw);
+    top: calc(min(200px, 15vh));
+}
+
+/* ================================================ */
+/* Contents in the final frame */
 #final_frame {
     opacity: 0;
     text-align: center;
