@@ -2,6 +2,7 @@
 @media screen and (max-width: 1023px){
     #circle {
         z-index:2;
+        top: 85%;
     }
 
     #frame_1 p, #frame_2 p, #frame_4 p {
