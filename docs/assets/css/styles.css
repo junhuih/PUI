@@ -255,18 +255,31 @@ body {
 .display_row {
     padding-top: 30vh;
     width:80%;
+    max-width: 800px;
     margin: auto;
     z-index: -5; /* on the very bottom */
 }
 
 .display_row p {
-    padding-top: 20px;
 }
 
 .rich_project_display {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 35% 20% 45%;
 }
+
+.project_with_illustration {
+}
+
+.project_with_illustration {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.project_with_illustration img {
+    max-width: 100%;
+}
+
 
 .rich_project_display img {
 	max-width: 100%;
